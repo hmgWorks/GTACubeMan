@@ -20,5 +20,7 @@ public:
 	void Update();
 	void Render();
 	void WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+
+	void ChangeScene(SCENE scene);
 };
 

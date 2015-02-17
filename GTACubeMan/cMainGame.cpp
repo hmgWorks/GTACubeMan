@@ -17,7 +17,7 @@ cMainGame::~cMainGame()
 }
 
 void cMainGame::Setup()
-{
+{	
 	m_vecScene.resize(SCENE::SCENE_MAX);
 	m_vecScene[SCENE::SCENE_INTRO] = new cSceneIntro;
 
@@ -51,5 +51,15 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	switch (message)
 	{
 	
+	}
+}
+
+void cMainGame::ChangeScene(SCENE scene)
+{
+	if (m_vecScene[scene] != m_pCurrentScene)
+	{
+		m_pCurrentScene->Exit();
+		m_pCurrentScene = m_vecScene[scene];
+		m_pCurrentScene->Setup();
 	}
 }
