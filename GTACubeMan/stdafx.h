@@ -136,6 +136,11 @@ struct ST_BOUNDING_SPHERE
 	ST_BOUNDING_SPHERE() : vCenter(0, 0, 0), fRadius(0) {}
 };
 
+enum SCENE
+{
+	SCENE_INTRO, SCENE_TUTO, SCENE_INGAME, SCENE_END, SCENE_MAX
+};
+
 // 인터페이스들
 //#include "iActionDelegate.h"
 //

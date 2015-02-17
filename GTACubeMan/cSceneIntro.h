@@ -1,5 +1,5 @@
 #pragma once
-#include "iSceneBase.h"
+//#include "iSceneBase.h"
 
 /*
 	게임을 실행하면 바로 뜨는 Scene
@@ -11,22 +11,21 @@
 
 	추가로 'new game', 'continue game'
 */
-class cUIImageButton;
+class cUIObject;
+__interface iButtonDelegate;
 
-class cSceneIntro :
-	public iSceneBase
+class cSceneIntro
+	:public iSceneBase
 {
 private:
-	LPD3DXSPRITE m_pSprite;
-	LPDIRECT3DTEXTURE9 m_pTextureBackground;
-	cUIImageButton* m_pButtonStartGame;
-	cUIImageButton* m_pButtonExitGame;
+	LPD3DXSPRITE	m_pSprite;	
+	cUIObject*		m_pUIRoot;
 
 public:
 	cSceneIntro();
 	virtual ~cSceneIntro();
 
-	void Setup() override;
+	void Setup(iButtonDelegate* dele) override;
 	void Update() override;
 	void Render() override;
 	void Exit() override;

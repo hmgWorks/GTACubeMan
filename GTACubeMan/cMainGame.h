@@ -1,14 +1,10 @@
 #pragma once
-__interface iSceneBase;
+#include "iButtonDelegate.h"
 
 class cMainGame
-	:public cObject
-{
-private:
-	enum SCENE
-	{
-		SCENE_INTRO, SCENE_TUTO, SCENE_INGAME, SCENE_END, SCENE_MAX
-	};
+	:public cObject, public iButtonDelegate
+{	
+private:	
 	std::vector<iSceneBase*> m_vecScene;
 	iSceneBase* m_pCurrentScene;
 
@@ -22,5 +18,7 @@ public:
 	void WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 	void ChangeScene(SCENE scene);
+
+	void OnClick(cObject* pSender) override;
 };
 

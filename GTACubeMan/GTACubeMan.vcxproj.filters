@@ -78,6 +78,15 @@
     <ClInclude Include="cUITextView.h">
       <Filter>소스 파일\UI</Filter>
     </ClInclude>
+    <ClInclude Include="cSceneInGame.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="iButtonDelegate.h">
+      <Filter>소스 파일\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="cSceneEnd.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -121,6 +130,12 @@
     </ClCompile>
     <ClCompile Include="cUITextView.cpp">
       <Filter>소스 파일\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="cSceneInGame.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="cSceneEnd.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

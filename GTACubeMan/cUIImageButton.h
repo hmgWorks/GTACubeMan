@@ -1,12 +1,7 @@
 #pragma once
 
 class cUIImageButton;
-
-class iButtonDelegate
-{
-public:
-	virtual void OnClick(cUIImageButton* pSender) = 0;
-};
+__interface iButtonDelegate;
 
 class cUIImageButton : public cUIObject
 {

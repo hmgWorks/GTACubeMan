@@ -1,8 +1,10 @@
 #pragma once
+__interface iButtonDelegate;
+
 __interface iSceneBase
 {
 public:
-	void Setup();
+	void Setup(iButtonDelegate* dele);
 	void Update();
 	void Render();
 	void Exit();

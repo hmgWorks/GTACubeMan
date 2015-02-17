@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 #include "cUIImageButton.h"
-
+#include "iButtonDelegate.h"
 
 cUIImageButton::cUIImageButton(LPD3DXSPRITE pSprite)
 	: cUIObject(pSprite)

@@ -1,12 +1,11 @@
 #include "stdafx.h"
 #include "cSceneIntro.h"
+#include "cUIImageView.h"
 #include "cUIImageButton.h"
 
 cSceneIntro::cSceneIntro()
 	:m_pSprite(NULL)
-	, m_pTextureBackground(NULL)
-	, m_pButtonStartGame(NULL)
-	, m_pButtonExitGame(NULL)
+	, m_pUIRoot(NULL)	
 {
 }
 
@@ -14,38 +13,47 @@ cSceneIntro::~cSceneIntro()
 {
 }
 
-void cSceneIntro::Setup()
+void cSceneIntro::Setup(iButtonDelegate* dele)
 {
-	m_pTextureBackground = g_pTextureManager->GetTexture("image/INTRO_BACKGROUND_TOWN.jpg");
 	D3DXCreateSprite(g_pD3DDevice, &m_pSprite);	
-	m_pButtonStartGame = new cUIImageButton(m_pSprite);
-	m_pButtonStartGame->Setup("image/INTRO_BUTTON_STARTGAME.png", "image/INTRO_BUTTON_STARTGAMEOVER.png", "image/INTRO_BUTTON_STARTGAMECLICK.png");
-	m_pButtonStartGame->SetPosition({ 100, 100, 1 });
+	cUIImageView* Background = new cUIImageView(m_pSprite);
+	Background->SetPosition({ 0, 0, 0 });
+	Background->SetTextureFilename(std::string("image/INTRO_BACKGROUND_TOWN.jpg"));
+	m_pUIRoot = Background;	
 
+	cUIImageButton* ButtonStartGame= new cUIImageButton(m_pSprite);
+	ButtonStartGame->SetTag(SCENE::SCENE_INGAME);
+	ButtonStartGame->SetDelegate(dele);
+	ButtonStartGame->Setup("image/INTRO_BUTTON_STARTGAME.png", "image/INTRO_BUTTON_STARTGAMEOVER.png", "image/INTRO_BUTTON_STARTGAMECLICK.png");
+	ButtonStartGame->SetPosition({ 500, 500, 0 });
+	m_pUIRoot->AddChild(ButtonStartGame);
+	SAFE_RELEASE(ButtonStartGame);
+	
+	cUIImageButton* ButtonExitGame = new cUIImageButton(m_pSprite);
+	ButtonExitGame->SetTag(SCENE::SCENE_END);
+	ButtonExitGame->SetDelegate(dele);
+	ButtonExitGame->Setup("image/INTRO_BUTTON_EXITGAME.png", "image/INTRO_BUTTON_EXITGAMEOVER.png", "image/INTRO_BUTTON_EXITGAMECLICK.png");
+	ButtonExitGame->SetPosition({ 500, 600, 0 });
+	m_pUIRoot->AddChild(ButtonExitGame);
+	SAFE_RELEASE(ButtonExitGame);
 }
 
 void cSceneIntro::Update()
 {
-	m_pButtonStartGame->Update();
+	if (m_pUIRoot)
+		m_pUIRoot->Update();
 }
 
 void cSceneIntro::Render()
 {
-	D3DVIEWPORT9 v;
-	g_pD3DDevice->GetViewport(&v);
-	RECT rc;
-	SetRect(&rc, 0, 0, (int)v.Width, (int)v.Height);
-	m_pSprite->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_TEXTURE);
-	m_pSprite->Draw(m_pTextureBackground, NULL, &D3DXVECTOR3(0, 0, 0), &D3DXVECTOR3(0, 0, 0), D3DCOLOR_XRGB(255, 255, 255));
-	m_pSprite->End();
-
-	m_pButtonStartGame->Render();
+	if (m_pUIRoot)
+		m_pUIRoot->Render();
 }
 
 void cSceneIntro::Exit()
-{
-	SAFE_RELEASE(m_pButtonExitGame);
-	SAFE_RELEASE(m_pButtonStartGame);
-	SAFE_RELEASE(m_pTextureBackground);
+{	
+	if (m_pUIRoot)
+		m_pUIRoot->Destroy();
+
 	SAFE_RELEASE(m_pSprite);	
 }

@@ -32,7 +32,7 @@ void cUIObject::Update()
 		m_matWorld = m_matWorld * m_pParent->m_matWorld;
 	}
 
-	for each(cUIObject* pChild in m_vecChild)
+	for (auto pChild : m_vecChild)
 	{
 		pChild->Update();
 	}
@@ -40,7 +40,7 @@ void cUIObject::Update()
 
 void cUIObject::Render()
 {
-	for each(cUIObject* pChild in m_vecChild)
+	for (auto pChild : m_vecChild)
 	{
 		pChild->Render();
 	}
@@ -48,7 +48,7 @@ void cUIObject::Render()
 
 void cUIObject::Destroy()
 {
-	for each(cUIObject* pChild in m_vecChild)
+	for (auto pChild : m_vecChild)
 	{
 		pChild->Destroy();
 	}
