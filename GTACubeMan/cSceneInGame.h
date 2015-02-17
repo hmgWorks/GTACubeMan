@@ -1,10 +1,15 @@
 #pragma once
 __interface iButtonDelegate;
 
+class cGrid;
+class cCamera;
+
 class cSceneInGame :
 	public iSceneBase
 {
 private:
+	cGrid*		m_pGrid;
+	cCamera*	m_pCamera;
 
 public:
 	cSceneInGame();

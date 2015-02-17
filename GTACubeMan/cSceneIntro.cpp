@@ -52,8 +52,8 @@ void cSceneIntro::Render()
 
 void cSceneIntro::Exit()
 {	
-	if (m_pUIRoot)
-		m_pUIRoot->Destroy();
-
-	SAFE_RELEASE(m_pSprite);	
+	//if (m_pUIRoot)
+	//	m_pUIRoot->Destroy();
+	//
+	//SAFE_RELEASE(m_pSprite);	
 }

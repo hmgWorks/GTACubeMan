@@ -1,5 +1,7 @@
 #pragma once
 #include "iButtonDelegate.h"
+class cMouseController;
+
 
 class cMainGame
 	:public cObject, public iButtonDelegate
@@ -7,7 +9,7 @@ class cMainGame
 private:	
 	std::vector<iSceneBase*> m_vecScene;
 	iSceneBase* m_pCurrentScene;
-
+	cMouseController*	m_pMouseController;
 public:
 	cMainGame();
 	virtual ~cMainGame();

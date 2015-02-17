@@ -24,6 +24,7 @@ void cMainGame::Setup()
 
 	m_pCurrentScene = m_vecScene[SCENE::SCENE_INTRO];
 	m_pCurrentScene->Setup(this);
+
 }
 
 void cMainGame::Update()
@@ -49,6 +50,7 @@ void cMainGame::Render()
 
 void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+
 	switch (message)
 	{
 	

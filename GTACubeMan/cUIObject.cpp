@@ -32,6 +32,7 @@ void cUIObject::Update()
 		m_matWorld = m_matWorld * m_pParent->m_matWorld;
 	}
 
+	if (!m_vecChild.empty())
 	for (auto pChild : m_vecChild)
 	{
 		pChild->Update();
@@ -40,6 +41,7 @@ void cUIObject::Update()
 
 void cUIObject::Render()
 {
+	if (!m_vecChild.empty())
 	for (auto pChild : m_vecChild)
 	{
 		pChild->Render();
@@ -48,6 +50,7 @@ void cUIObject::Render()
 
 void cUIObject::Destroy()
 {
+	if (!m_vecChild.empty())
 	for (auto pChild : m_vecChild)
 	{
 		pChild->Destroy();
