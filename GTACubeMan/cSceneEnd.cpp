@@ -10,7 +10,7 @@ cSceneEnd::~cSceneEnd()
 {
 }
 
-void cSceneEnd::Setup(iButtonDelegate* dele)
+void cSceneEnd::Setup(iButtonDelegate* dele, cCamera* camera)
 {
 
 }

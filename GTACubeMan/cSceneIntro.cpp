@@ -13,7 +13,7 @@ cSceneIntro::~cSceneIntro()
 {
 }
 
-void cSceneIntro::Setup(iButtonDelegate* dele)
+void cSceneIntro::Setup(iButtonDelegate* dele, cCamera* camera)
 {
 	D3DXCreateSprite(g_pD3DDevice, &m_pSprite);	
 	cUIImageView* Background = new cUIImageView(m_pSprite);

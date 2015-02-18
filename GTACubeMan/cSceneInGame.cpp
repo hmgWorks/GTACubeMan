@@ -3,11 +3,11 @@
 #include "iButtonDelegate.h"
 #include "cGrid.h"
 #include "cCamera.h"
+#include "cMouseController.h"
 
 cSceneInGame::cSceneInGame()
 	:m_pGrid(NULL)
 	, m_pCamera(NULL)
-	
 {
 }
 
@@ -15,13 +15,14 @@ cSceneInGame::~cSceneInGame()
 {
 }
 
-void cSceneInGame::Setup(iButtonDelegate* dele)
+void cSceneInGame::Setup(iButtonDelegate* dele, cCamera* camera)
 {
 	m_pGrid = new cGrid;
-	m_pGrid->Setup(30, 1);
-
-	//m_pCamera = new cCamera;
-	//m_pCamera->Setup();
+	m_pGrid->Setup(30, 1);	
+	
+	m_pCamera = camera;
+	m_pCamera->Setup();
+	
 }
 
 void cSceneInGame::Update()

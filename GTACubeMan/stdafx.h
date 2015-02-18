@@ -148,6 +148,7 @@ enum SCENE
 //#include "cGameObject.h"
 #include "cObjectManager.h"
 
+#include "cInputManiger.h"
 #include "cTextureManager.h"
 #include "cTimeManager.h"
 #include "cDeviceManager.h"

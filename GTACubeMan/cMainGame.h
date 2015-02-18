@@ -1,15 +1,16 @@
 #pragma once
 #include "iButtonDelegate.h"
-class cMouseController;
-
+class cCamera;
 
 class cMainGame
 	:public cObject, public iButtonDelegate
 {	
 private:	
-	std::vector<iSceneBase*> m_vecScene;
-	iSceneBase* m_pCurrentScene;
-	cMouseController*	m_pMouseController;
+	std::map<SCENE, iSceneBase*> m_mapScene;
+
+	iSceneBase*	m_pCurrentScene;
+	cCamera*	m_pCamera;
+
 public:
 	cMainGame();
 	virtual ~cMainGame();
@@ -19,7 +20,7 @@ public:
 	void Render();
 	void WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-	void ChangeScene(SCENE scene);
+	void ChangeScene(SCENE scene, cCamera* camera = NULL);
 
 	void OnClick(cObject* pSender) override;
 };

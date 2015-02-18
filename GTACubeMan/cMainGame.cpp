@@ -2,29 +2,35 @@
 #include "cMainGame.h"
 #include "cSceneIntro.h"
 #include "cSceneInGame.h"
+#include "cCamera.h"
 
 cMainGame::cMainGame()
 	:m_pCurrentScene(NULL)
+	, m_pCamera(NULL)
 {
 }
 
 cMainGame::~cMainGame()
 {
-	for (auto p : m_vecScene)
+	SAFE_DELETE(m_pCamera);
+	for (auto p : m_mapScene)
 	{
-		SAFE_DELETE(p);
+		SAFE_DELETE(p.second);
 	}
+
 }
 
 void cMainGame::Setup()
 {	
-	m_vecScene.resize(SCENE::SCENE_MAX);
-	m_vecScene[SCENE::SCENE_INTRO] = new cSceneIntro;
-	m_vecScene[SCENE::SCENE_INGAME] = new cSceneInGame;
+	//m_mapScene.resize(SCENE::SCENE_MAX);
+	m_mapScene[SCENE::SCENE_INTRO] = new cSceneIntro;
+	m_mapScene[SCENE::SCENE_INGAME] = new cSceneInGame;
 
-	m_pCurrentScene = m_vecScene[SCENE::SCENE_INTRO];
+	m_pCurrentScene = m_mapScene[SCENE::SCENE_INTRO];
 	m_pCurrentScene->Setup(this);
 
+	m_pCamera = new cCamera;
+	m_pCamera->Setup();
 }
 
 void cMainGame::Update()
@@ -50,6 +56,10 @@ void cMainGame::Render()
 
 void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+	if (g_pInputManager->GetInstance())
+			g_pInputManager->GetInstance()->WndProc(hWnd, message, wParam, lParam);
+	if (m_pCamera)
+		m_pCamera->WndProc(hWnd, message, wParam, lParam);
 
 	switch (message)
 	{
@@ -59,26 +69,38 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}	
 }
 
-void cMainGame::ChangeScene(SCENE scene)
+void cMainGame::ChangeScene(SCENE scene, cCamera* camera)
 {
-	if (m_vecScene[scene] != m_pCurrentScene)
+	if (m_mapScene[scene] != m_pCurrentScene)
 	{		
 		m_pCurrentScene->Exit();
-		m_pCurrentScene = m_vecScene[scene];
-		m_pCurrentScene->Setup(this);
+		m_pCurrentScene = m_mapScene[scene];
+		if (camera)
+			m_pCurrentScene->Setup(this, camera);
+		else
+			m_pCurrentScene->Setup(this);
 	}
 }
 
 void cMainGame::OnClick(cObject* pSender)
 {
 	SCENE nextScene = (SCENE)pSender->GetTag();
-	if (nextScene == SCENE::SCENE_END)
+	switch (nextScene)
 	{
-		//m_pCurrentScene->Exit();
+	case SCENE_INTRO:
+		ChangeScene(nextScene);
+		break;
+	case SCENE_TUTO:
+		ChangeScene(nextScene);
+		break;
+	case SCENE_INGAME:
+		ChangeScene(nextScene, m_pCamera);
+		break;
+	case SCENE_END:
 		::DestroyWindow(g_hWnd);
-	}
-	else
-	{
-		ChangeScene(nextScene);	
+		break;
+	case SCENE_MAX:
+		ChangeScene(nextScene);
+		break;	
 	}
 }

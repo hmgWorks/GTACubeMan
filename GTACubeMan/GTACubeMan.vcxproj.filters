@@ -90,10 +90,13 @@
     <ClInclude Include="cGrid.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="cCamera.h">
+    <ClInclude Include="cMouseController.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="cMouseController.h">
+    <ClInclude Include="cInputManiger.h">
+      <Filter>소스 파일\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="cCamera.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -149,10 +152,13 @@
     <ClCompile Include="cGrid.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="cCamera.cpp">
+    <ClCompile Include="cMouseController.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="cMouseController.cpp">
+    <ClCompile Include="cInputManiger.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="cCamera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -86,6 +86,7 @@
     <ClInclude Include="cDeviceManager.h" />
     <ClInclude Include="cFontManager.h" />
     <ClInclude Include="cGrid.h" />
+    <ClInclude Include="cInputManiger.h" />
     <ClInclude Include="cMainGame.h" />
     <ClInclude Include="cMouseController.h" />
     <ClInclude Include="cObject.h" />
@@ -111,6 +112,7 @@
     <ClCompile Include="cDeviceManager.cpp" />
     <ClCompile Include="cFontManager.cpp" />
     <ClCompile Include="cGrid.cpp" />
+    <ClCompile Include="cInputManiger.cpp" />
     <ClCompile Include="cMainGame.cpp" />
     <ClCompile Include="cMouseController.cpp" />
     <ClCompile Include="cObject.cpp" />
