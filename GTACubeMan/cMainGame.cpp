@@ -24,7 +24,7 @@ void cMainGame::Setup()
 {	
 	//m_mapScene.resize(SCENE::SCENE_MAX);
 	m_mapScene[SCENE::SCENE_INTRO] = new cSceneIntro;
-	m_mapScene[SCENE::SCENE_INGAME] = new cScenePlayGame;
+	m_mapScene[SCENE::SCENE_PLAY_GAME] = new cScenePlayGame;
 
 	m_pCurrentScene = m_mapScene[SCENE::SCENE_INTRO];
 	m_pCurrentScene->Setup(this);
@@ -93,7 +93,7 @@ void cMainGame::OnClick(cObject* pSender)
 	case SCENE_TUTO:
 		ChangeScene(nextScene);
 		break;
-	case SCENE_INGAME:
+	case SCENE_PLAY_GAME:
 		ChangeScene(nextScene, m_pCamera);
 		break;
 	case SCENE_END:

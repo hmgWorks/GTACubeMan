@@ -96,13 +96,13 @@
     <ClInclude Include="cCamera.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="cSceneNewPlayer.h">
-      <Filter>소스 파일\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="cScenePlayGame.h">
       <Filter>소스 파일\Scene</Filter>
     </ClInclude>
     <ClInclude Include="cSceneSelectPlayData.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="cSceneNewPlay.h">
       <Filter>소스 파일\Scene</Filter>
     </ClInclude>
   </ItemGroup>
@@ -164,13 +164,13 @@
     <ClCompile Include="cCamera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="cSceneNewPlayer.cpp">
-      <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="cScenePlayGame.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
     <ClCompile Include="cSceneSelectPlayData.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="cSceneNewPlay.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
   </ItemGroup>
