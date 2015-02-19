@@ -92,6 +92,7 @@
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cSceneEnd.h" />
+    <ClInclude Include="cSceneMenu.h" />
     <ClInclude Include="cScenePlayGame.h" />
     <ClInclude Include="cSceneIntro.h" />
     <ClInclude Include="cSceneNewPlay.h" />
@@ -120,6 +121,7 @@
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectManager.cpp" />
     <ClCompile Include="cSceneEnd.cpp" />
+    <ClCompile Include="cSceneMenu.cpp" />
     <ClCompile Include="cScenePlayGame.cpp" />
     <ClCompile Include="cSceneIntro.cpp" />
     <ClCompile Include="cSceneNewPlay.cpp" />

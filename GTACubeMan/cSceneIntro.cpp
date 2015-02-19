@@ -13,7 +13,7 @@ cSceneIntro::~cSceneIntro()
 {
 }
 
-void cSceneIntro::Setup(iButtonDelegate* dele, cCamera* camera)
+void cSceneIntro::Setup(iButtonDelegate* dele)
 {
 	D3DXCreateSprite(g_pD3DDevice, &m_pSprite);	
 	cUIImageView* Background = new cUIImageView(m_pSprite);
@@ -22,7 +22,7 @@ void cSceneIntro::Setup(iButtonDelegate* dele, cCamera* camera)
 	m_pUIRoot = Background;	
 
 	cUIImageButton* ButtonStartGame= new cUIImageButton(m_pSprite);
-	ButtonStartGame->SetTag(SCENE::SCENE_PLAY_GAME);
+	ButtonStartGame->SetTag(SCENE::SCENE_NEW_PLAY);
 	ButtonStartGame->SetDelegate(dele);
 	ButtonStartGame->Setup("image/INTRO_BUTTON_STARTGAME.png", "image/INTRO_BUTTON_STARTGAMEOVER.png", "image/INTRO_BUTTON_STARTGAMECLICK.png");
 	ButtonStartGame->SetPosition({ 500, 500, 0 });

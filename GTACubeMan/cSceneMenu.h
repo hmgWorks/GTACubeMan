@@ -1,10 +1,10 @@
 #pragma once
-class cSceneSelectPlayData
+class cSceneMenu
 	:public iSceneBase
 {
 public:
-	cSceneSelectPlayData();
-	virtual ~cSceneSelectPlayData();
+	cSceneMenu();
+	virtual ~cSceneMenu();
 
 	void Setup(iButtonDelegate* dele) override;
 	void Update() override;

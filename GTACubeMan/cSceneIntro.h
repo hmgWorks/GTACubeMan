@@ -25,7 +25,7 @@ public:
 	cSceneIntro();
 	virtual ~cSceneIntro();
 
-	void Setup(iButtonDelegate* dele, cCamera* camera = NULL) override;
+	void Setup(iButtonDelegate* dele) override;
 	void Update() override;
 	void Render() override;
 	void Exit() override;

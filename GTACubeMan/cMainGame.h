@@ -11,6 +11,10 @@ private:
 	iSceneBase*	m_pCurrentScene;
 	cCamera*	m_pCamera;
 
+
+public://get/set
+	cCamera* GetCamera(){ return m_pCamera; }
+
 public:
 	cMainGame();
 	virtual ~cMainGame();

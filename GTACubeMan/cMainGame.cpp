@@ -1,7 +1,11 @@
 #include "stdafx.h"
 #include "cMainGame.h"
 #include "cSceneIntro.h"
+#include "cSceneNewPlay.h"
+#include "cSceneSelectPlayData.h"
 #include "cScenePlayGame.h"
+#include "cSceneEnd.h"
+#include "cSceneMenu.h"
 #include "cCamera.h"
 
 cMainGame::cMainGame()
@@ -21,10 +25,13 @@ cMainGame::~cMainGame()
 }
 
 void cMainGame::Setup()
-{	
-	//m_mapScene.resize(SCENE::SCENE_MAX);
-	m_mapScene[SCENE::SCENE_INTRO] = new cSceneIntro;
-	m_mapScene[SCENE::SCENE_PLAY_GAME] = new cScenePlayGame;
+{		
+	m_mapScene[SCENE::SCENE_INTRO]				= new cSceneIntro;
+	m_mapScene[SCENE::SCENE_NEW_PLAY]			= new cSceneNewPlay;
+	m_mapScene[SCENE::SCENE_SELECT_PLAY_DATA]	= new cSceneSelectPlayData;
+	m_mapScene[SCENE::SCENE_PLAY_GAME]			= new cScenePlayGame;
+	m_mapScene[SCENE::SCENE_END]				= new cSceneEnd;
+	m_mapScene[SCENE::SCENE_MENU]				= new cSceneMenu;
 
 	m_pCurrentScene = m_mapScene[SCENE::SCENE_INTRO];
 	m_pCurrentScene->Setup(this);
@@ -44,7 +51,6 @@ void cMainGame::Render()
 		NULL,
 		D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER,
 		D3DCOLOR_XRGB(33, 40, 48),
-		//D3DCOLOR_XRGB(0, 0, 255),
 		1.0f, 0);
 	g_pD3DDevice->BeginScene();
 
@@ -75,10 +81,7 @@ void cMainGame::ChangeScene(SCENE scene, cCamera* camera)
 	{		
 		m_pCurrentScene->Exit();
 		m_pCurrentScene = m_mapScene[scene];
-		if (camera)
-			m_pCurrentScene->Setup(this, camera);
-		else
-			m_pCurrentScene->Setup(this);
+		m_pCurrentScene->Setup(this);		
 	}
 }
 
@@ -87,20 +90,23 @@ void cMainGame::OnClick(cObject* pSender)
 	SCENE nextScene = (SCENE)pSender->GetTag();
 	switch (nextScene)
 	{
-	case SCENE_INTRO:
+	case SCENE::SCENE_INTRO:
 		ChangeScene(nextScene);
 		break;
-	case SCENE_TUTO:
+	case SCENE::SCENE_NEW_PLAY:
 		ChangeScene(nextScene);
 		break;
-	case SCENE_PLAY_GAME:
-		ChangeScene(nextScene, m_pCamera);
+	case SCENE::SCENE_SELECT_PLAY_DATA:
+		ChangeScene(nextScene);
 		break;
-	case SCENE_END:
+	case SCENE::SCENE_PLAY_GAME:
+		ChangeScene(nextScene);
+		break;
+	case SCENE::SCENE_END:
 		::DestroyWindow(g_hWnd);
-		break;
-	case SCENE_MAX:
-		ChangeScene(nextScene);
 		break;	
+	case SCENE::SCENE_MENU:
+		ChangeScene(nextScene);
+		break;
 	}
 }

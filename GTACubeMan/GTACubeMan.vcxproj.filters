@@ -81,9 +81,6 @@
     <ClInclude Include="iButtonDelegate.h">
       <Filter>소스 파일\UI</Filter>
     </ClInclude>
-    <ClInclude Include="cSceneEnd.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="cGrid.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -103,6 +100,12 @@
       <Filter>소스 파일\Scene</Filter>
     </ClInclude>
     <ClInclude Include="cSceneNewPlay.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="cSceneEnd.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="cSceneMenu.h">
       <Filter>소스 파일\Scene</Filter>
     </ClInclude>
   </ItemGroup>
@@ -149,9 +152,6 @@
     <ClCompile Include="cUITextView.cpp">
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
-    <ClCompile Include="cSceneEnd.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="cGrid.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -171,6 +171,12 @@
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
     <ClCompile Include="cSceneNewPlay.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="cSceneEnd.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="cSceneMenu.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
   </ItemGroup>
