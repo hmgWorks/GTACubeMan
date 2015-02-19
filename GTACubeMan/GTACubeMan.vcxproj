@@ -92,8 +92,10 @@
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cSceneEnd.h" />
-    <ClInclude Include="cSceneInGame.h" />
+    <ClInclude Include="cScenePlayGame.h" />
     <ClInclude Include="cSceneIntro.h" />
+    <ClInclude Include="cSceneNewPlayer.h" />
+    <ClInclude Include="cSceneSelectPlayData.h" />
     <ClInclude Include="cTextureManager.h" />
     <ClInclude Include="cTimeManager.h" />
     <ClInclude Include="cUIImageButton.h" />
@@ -118,8 +120,10 @@
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectManager.cpp" />
     <ClCompile Include="cSceneEnd.cpp" />
-    <ClCompile Include="cSceneInGame.cpp" />
+    <ClCompile Include="cScenePlayGame.cpp" />
     <ClCompile Include="cSceneIntro.cpp" />
+    <ClCompile Include="cSceneNewPlayer.cpp" />
+    <ClCompile Include="cSceneSelectPlayData.cpp" />
     <ClCompile Include="cTextureManager.cpp" />
     <ClCompile Include="cTimeManager.cpp" />
     <ClCompile Include="cUIImageButton.cpp" />

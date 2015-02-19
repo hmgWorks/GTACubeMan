@@ -213,12 +213,12 @@ void cGrid::Setup( int nHalfTile, float fWidth )
 
 void cGrid::Render()
 {
-	
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
 	D3DXMATRIXA16 matWorld;
 	D3DXMatrixIdentity(&matWorld);
 	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matWorld);
 	g_pD3DDevice->SetFVF(ST_PC_VERTEX::FVF);
-	g_pD3DDevice->SetTexture(0, 0);
+	g_pD3DDevice->SetTexture(0, NULL);
 	g_pD3DDevice->SetStreamSource(0, m_pVB, 0, sizeof(ST_PC_VERTEX));
 	g_pD3DDevice->DrawPrimitive(D3DPT_LINELIST, 0, m_nNumLine);
 

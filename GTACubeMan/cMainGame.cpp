@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "cMainGame.h"
 #include "cSceneIntro.h"
-#include "cSceneInGame.h"
+#include "cScenePlayGame.h"
 #include "cCamera.h"
 
 cMainGame::cMainGame()
@@ -24,7 +24,7 @@ void cMainGame::Setup()
 {	
 	//m_mapScene.resize(SCENE::SCENE_MAX);
 	m_mapScene[SCENE::SCENE_INTRO] = new cSceneIntro;
-	m_mapScene[SCENE::SCENE_INGAME] = new cSceneInGame;
+	m_mapScene[SCENE::SCENE_INGAME] = new cScenePlayGame;
 
 	m_pCurrentScene = m_mapScene[SCENE::SCENE_INTRO];
 	m_pCurrentScene->Setup(this);
@@ -43,7 +43,7 @@ void cMainGame::Render()
 	g_pD3DDevice->Clear(NULL,
 		NULL,
 		D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER,
-		D3DCOLOR_XRGB(47, 121, 112),
+		D3DCOLOR_XRGB(33, 40, 48),
 		//D3DCOLOR_XRGB(0, 0, 255),
 		1.0f, 0);
 	g_pD3DDevice->BeginScene();
