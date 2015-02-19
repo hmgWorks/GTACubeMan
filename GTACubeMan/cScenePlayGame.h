@@ -15,7 +15,8 @@ class cScenePlayGame
 private:
 	cGrid*		m_pGrid;
 	cCamera*	m_pCamera;
-	
+	iButtonDelegate* m_pButtonDelegate;
+
 
 public:
 	cScenePlayGame();

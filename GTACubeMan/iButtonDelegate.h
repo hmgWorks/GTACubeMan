@@ -6,4 +6,5 @@ __interface iButtonDelegate
 public:
 	void OnClick(cObject* pSender);
 	cCamera* GetCamera();
+	void MenuSetting();
 }; 

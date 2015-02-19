@@ -10,10 +10,7 @@ private:
 
 	iSceneBase*	m_pCurrentScene;
 	cCamera*	m_pCamera;
-
-
-public://get/set
-	cCamera* GetCamera(){ return m_pCamera; }
+	
 
 public:
 	cMainGame();
@@ -24,8 +21,11 @@ public:
 	void Render();
 	void WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-	void ChangeScene(SCENE scene, cCamera* camera = NULL);
+	void ChangeScene(SCENE scene);
 
+	//iButtonDelegate
 	void OnClick(cObject* pSender) override;
+	cCamera* GetCamera() override { return m_pCamera; }
+	void MenuSetting() override;
 };
 

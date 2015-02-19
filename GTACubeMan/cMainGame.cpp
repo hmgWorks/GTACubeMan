@@ -75,7 +75,7 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}	
 }
 
-void cMainGame::ChangeScene(SCENE scene, cCamera* camera)
+void cMainGame::ChangeScene(SCENE scene)
 {
 	if (m_mapScene[scene] != m_pCurrentScene)
 	{		
@@ -109,4 +109,9 @@ void cMainGame::OnClick(cObject* pSender)
 		ChangeScene(nextScene);
 		break;
 	}
+}
+
+void cMainGame::MenuSetting()
+{
+	ChangeScene(SCENE::SCENE_MENU);
 }

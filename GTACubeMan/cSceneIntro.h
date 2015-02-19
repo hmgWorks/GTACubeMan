@@ -11,7 +11,6 @@
 
 	Ãß°¡·Î 'new game', 'continue game'
 */
-class cUIObject;
 __interface iButtonDelegate;
 
 class cSceneIntro

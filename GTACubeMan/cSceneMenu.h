@@ -2,6 +2,10 @@
 class cSceneMenu
 	:public iSceneBase
 {
+private:
+	LPD3DXSPRITE	m_pSprite;
+	cUIObject*		m_pUIRoot;
+
 public:
 	cSceneMenu();
 	virtual ~cSceneMenu();

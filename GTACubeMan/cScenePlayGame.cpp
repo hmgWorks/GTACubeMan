@@ -7,15 +7,18 @@
 cScenePlayGame::cScenePlayGame()
 	:m_pGrid(NULL)
 	, m_pCamera(NULL)
+	, m_pButtonDelegate(NULL)
 {
 }
 
 cScenePlayGame::~cScenePlayGame()
 {
+	SAFE_DELETE(m_pGrid);
 }
 
 void cScenePlayGame::Setup(iButtonDelegate* dele)
 {
+	m_pButtonDelegate = dele;
 	m_pGrid = new cGrid;
 	m_pGrid->Setup(30, 1);	
 	
@@ -28,6 +31,11 @@ void cScenePlayGame::Update()
 {
 	if (m_pCamera)
 		m_pCamera->Update();
+	if (g_pInputManager->GetKeyDownOnce(VK_ESCAPE))
+	{
+		m_pButtonDelegate->MenuSetting();
+	}
+
 }
 
 void cScenePlayGame::Render()
@@ -38,5 +46,5 @@ void cScenePlayGame::Render()
 
 void cScenePlayGame::Exit()
 {
-	SAFE_DELETE(m_pGrid);
+	
 }
