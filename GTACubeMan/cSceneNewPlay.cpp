@@ -3,9 +3,11 @@
 #include "cUIImageView.h"
 #include "cUIImageButton.h"
 
+
 cSceneNewPlay::cSceneNewPlay()
 	:m_pSprite(NULL)
 	, m_pUIRoot(NULL)
+	
 {
 }
 
@@ -41,18 +43,24 @@ void cSceneNewPlay::Setup(iButtonDelegate* dele)
 	ButtonStart->SetPosition({ 300, 500, 0 });
 	m_pUIRoot->AddChild(ButtonStart);
 	SAFE_RELEASE(ButtonStart);
+
+
+
 }
 
 void cSceneNewPlay::Update()
 {
 	if (m_pUIRoot)
 		m_pUIRoot->Update();
+
+	
 }
 
 void cSceneNewPlay::Render()
 {
 	if (m_pUIRoot)
 		m_pUIRoot->Render();
+	
 }
 
 void cSceneNewPlay::Exit()
