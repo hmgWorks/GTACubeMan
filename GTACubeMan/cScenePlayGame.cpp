@@ -5,12 +5,14 @@
 #include "cCamera.h"
 #include "cFrame.h"
 #include "cAseLoader.h"
+#include "cSkinnedMesh.h"
 
 cScenePlayGame::cScenePlayGame()
 	:m_pGrid(NULL)
 	, m_pCamera(NULL)
 	, m_pButtonDelegate(NULL)
 	, m_pAseRoot(NULL)
+	, m_pSkinnedMesh(NULL)
 {
 }
 
@@ -24,7 +26,12 @@ void cScenePlayGame::Setup(iButtonDelegate* dele)
 	m_pButtonDelegate = dele;
 	m_pGrid = new cGrid;
 	m_pGrid->Setup(30, 1);	
+
+	m_pSkinnedMesh = dele->GetSkinnedMesh();
 	
+	//m_pSkinnedMesh = new cSkinnedMesh;
+	//m_pSkinnedMesh->Setup(std::string("xfile/"), std::string("zealot.X"));
+
 	m_pCamera = dele->GetCamera();
 	m_pCamera->Setup();
 
@@ -36,8 +43,12 @@ void cScenePlayGame::Setup(iButtonDelegate* dele)
 
 void cScenePlayGame::Update()
 {
+	if (m_pSkinnedMesh)
+		m_pSkinnedMesh->Update();
+
 	if (m_pCamera)
 		m_pCamera->Update();
+
 	if (g_pInputManager->GetKeyDownOnce(VK_ESCAPE))
 	{
 		m_pButtonDelegate->MenuSetting();
@@ -57,6 +68,9 @@ void cScenePlayGame::Render()
 
 	if (m_pAseRoot)
 		m_pAseRoot->Render();
+
+	if (m_pSkinnedMesh)
+		m_pSkinnedMesh->Render();
 }
 
 void cScenePlayGame::Exit()

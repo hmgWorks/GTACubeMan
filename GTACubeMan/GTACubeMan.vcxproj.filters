@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\AseLoader">
       <UniqueIdentifier>{f8766174-fc34-4c88-bb7f-2164d397b8ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\XLoader">
+      <UniqueIdentifier>{d7a0ef4f-900b-4fcc-b249-a3e5a7297d00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -123,6 +126,15 @@
     <ClInclude Include="cMtlTex.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="cAllocateHierarchy.h">
+      <Filter>소스 파일\XLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="cAnimationSet.h">
+      <Filter>소스 파일\XLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="cSkinnedMesh.h">
+      <Filter>소스 파일\XLoader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -202,6 +214,15 @@
     </ClCompile>
     <ClCompile Include="cMtlTex.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cAllocateHierarchy.cpp">
+      <Filter>소스 파일\XLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="cAnimationSet.cpp">
+      <Filter>소스 파일\XLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="cSkinnedMesh.cpp">
+      <Filter>소스 파일\XLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

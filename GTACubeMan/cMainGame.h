@@ -1,6 +1,8 @@
 #pragma once
 #include "iButtonDelegate.h"
+
 class cCamera;
+class cSkinnedMesh;
 
 class cMainGame
 	:public cObject, public iButtonDelegate
@@ -10,7 +12,7 @@ private:
 
 	iSceneBase*	m_pCurrentScene;
 	cCamera*	m_pCamera;
-	
+	cSkinnedMesh* m_pSkinnedMesh;
 
 public:
 	cMainGame();
@@ -25,7 +27,10 @@ public:
 
 	//iButtonDelegate
 	void OnClick(cObject* pSender) override;
-	cCamera* GetCamera() override { return m_pCamera; }
+	cCamera* GetCamera() override;
+	cSkinnedMesh* GetSkinnedMesh() override;
+	void InitPlayer() override;
+	void CreatePlayer();
 	void MenuSetting() override;
 };
 

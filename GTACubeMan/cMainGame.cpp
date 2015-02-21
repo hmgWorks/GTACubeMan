@@ -7,15 +7,19 @@
 #include "cSceneEnd.h"
 #include "cSceneMenu.h"
 #include "cCamera.h"
+#include "cSkinnedMesh.h"
+#include <thread>
 
 cMainGame::cMainGame()
 	:m_pCurrentScene(NULL)
 	, m_pCamera(NULL)
+	, m_pSkinnedMesh(NULL)
 {
 }
 
 cMainGame::~cMainGame()
 {
+	SAFE_DELETE(m_pSkinnedMesh);
 	SAFE_DELETE(m_pCamera);
 	for (auto p : m_mapScene)
 	{
@@ -35,6 +39,7 @@ void cMainGame::Setup()
 
 	m_pCurrentScene = m_mapScene[SCENE::SCENE_INTRO];
 	m_pCurrentScene->Setup(this);
+	
 
 	m_pCamera = new cCamera;
 	m_pCamera->Setup();
@@ -42,7 +47,8 @@ void cMainGame::Setup()
 
 void cMainGame::Update()
 {
-	m_pCurrentScene->Update();
+	if (m_pCurrentScene)
+		m_pCurrentScene->Update();
 }
 
 void cMainGame::Render()
@@ -54,7 +60,8 @@ void cMainGame::Render()
 		1.0f, 0);
 	g_pD3DDevice->BeginScene();
 
-	m_pCurrentScene->Render();
+	if (m_pCurrentScene)
+		m_pCurrentScene->Render();
 
 	g_pD3DDevice->EndScene();
 	g_pD3DDevice->Present(NULL, NULL, NULL, NULL);
@@ -93,13 +100,14 @@ void cMainGame::OnClick(cObject* pSender)
 	case SCENE::SCENE_INTRO:
 		ChangeScene(nextScene);
 		break;
-	case SCENE::SCENE_NEW_PLAY:
+	case SCENE::SCENE_NEW_PLAY:		
 		ChangeScene(nextScene);
 		break;
 	case SCENE::SCENE_SELECT_PLAY_DATA:
 		ChangeScene(nextScene);
 		break;
 	case SCENE::SCENE_PLAY_GAME:
+		InitPlayer();
 		ChangeScene(nextScene);
 		break;
 	case SCENE::SCENE_END:
@@ -115,3 +123,28 @@ void cMainGame::MenuSetting()
 {
 	ChangeScene(SCENE::SCENE_MENU);
 }
+
+cCamera* cMainGame::GetCamera()
+{ 
+	return m_pCamera; 
+}
+
+cSkinnedMesh* cMainGame::GetSkinnedMesh()
+{
+	return m_pSkinnedMesh; 
+}
+
+
+#pragma region 미완 쓰레드 변경 해야함
+void cMainGame::InitPlayer()
+{
+	std::thread t(&cMainGame::CreatePlayer, this);
+	t.join();
+}
+
+void cMainGame::CreatePlayer()
+{
+	m_pSkinnedMesh = new cSkinnedMesh;
+	m_pSkinnedMesh->Setup(std::string("xfile/"), std::string("zealot.X"));
+}
+#pragma endregion

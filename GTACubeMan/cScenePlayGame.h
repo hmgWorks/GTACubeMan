@@ -9,15 +9,17 @@ __interface iButtonDelegate;
 class cGrid;
 class cCamera;
 class cFrame;
+class cSkinnedMesh;
 
 class cScenePlayGame
 	:public iSceneBase
 {
 private:
-	cGrid*		m_pGrid;
-	cCamera*	m_pCamera;
-	iButtonDelegate* m_pButtonDelegate;
-	cFrame*			m_pAseRoot;
+	cGrid*				m_pGrid;
+	cCamera*			m_pCamera;
+	iButtonDelegate*	m_pButtonDelegate;
+	cFrame*				m_pAseRoot;
+	cSkinnedMesh*		m_pSkinnedMesh;
 
 public:
 	cScenePlayGame();
