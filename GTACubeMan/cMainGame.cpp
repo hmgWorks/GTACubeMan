@@ -47,6 +47,8 @@ void cMainGame::Setup()
 
 void cMainGame::Update()
 {
+	g_pTimeManager->Update();
+
 	if (m_pCurrentScene)
 		m_pCurrentScene->Update();
 }
@@ -107,7 +109,7 @@ void cMainGame::OnClick(cObject* pSender)
 		ChangeScene(nextScene);
 		break;
 	case SCENE::SCENE_PLAY_GAME:
-		InitPlayer();
+		CreatePlayer();
 		ChangeScene(nextScene);
 		break;
 	case SCENE::SCENE_END:
@@ -119,7 +121,7 @@ void cMainGame::OnClick(cObject* pSender)
 	}
 }
 
-void cMainGame::MenuSetting()
+void cMainGame::Menu()
 {
 	ChangeScene(SCENE::SCENE_MENU);
 }
@@ -136,15 +138,21 @@ cSkinnedMesh* cMainGame::GetSkinnedMesh()
 
 
 #pragma region 미완 쓰레드 변경 해야함
-void cMainGame::InitPlayer()
-{
-	std::thread t(&cMainGame::CreatePlayer, this);
-	t.join();
-}
+//void cMainGame::InitPlayer()
+//{
+//	std::thread t(&cMainGame::CreatePlayer, this);
+//	t.join();
+//}
 
 void cMainGame::CreatePlayer()
 {
 	m_pSkinnedMesh = new cSkinnedMesh;
 	m_pSkinnedMesh->Setup(std::string("xfile/"), std::string("zealot.X"));
+	m_pSkinnedMesh->SetAnimationLoop(0, false);
+	m_pSkinnedMesh->SetAnimationLoop(1, false);
+	m_pSkinnedMesh->SetAnimationLoop(2, false);
+	m_pSkinnedMesh->SetAnimationLoop(3, true);
+	m_pSkinnedMesh->SetAnimationLoop(4, true);
+	m_pSkinnedMesh->SetAnimationIndex(4);
 }
 #pragma endregion

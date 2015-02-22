@@ -29,8 +29,8 @@ public:
 	void OnClick(cObject* pSender) override;
 	cCamera* GetCamera() override;
 	cSkinnedMesh* GetSkinnedMesh() override;
-	void InitPlayer() override;
+	//void InitPlayer() override;
 	void CreatePlayer();
-	void MenuSetting() override;
+	void Menu() override;
 };
 

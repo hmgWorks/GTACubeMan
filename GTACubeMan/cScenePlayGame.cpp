@@ -28,9 +28,6 @@ void cScenePlayGame::Setup(iButtonDelegate* dele)
 	m_pGrid->Setup(30, 1);	
 
 	m_pSkinnedMesh = dele->GetSkinnedMesh();
-	
-	//m_pSkinnedMesh = new cSkinnedMesh;
-	//m_pSkinnedMesh->Setup(std::string("xfile/"), std::string("zealot.X"));
 
 	m_pCamera = dele->GetCamera();
 	m_pCamera->Setup();
@@ -43,16 +40,16 @@ void cScenePlayGame::Setup(iButtonDelegate* dele)
 
 void cScenePlayGame::Update()
 {
-	if (m_pSkinnedMesh)
-		m_pSkinnedMesh->Update();
+	if (g_pInputManager->GetKeyDownOnce(VK_ESCAPE))
+	{
+		m_pButtonDelegate->Menu();
+	}
 
 	if (m_pCamera)
 		m_pCamera->Update();
 
-	if (g_pInputManager->GetKeyDownOnce(VK_ESCAPE))
-	{
-		m_pButtonDelegate->MenuSetting();
-	}
+	if (m_pSkinnedMesh)
+		m_pSkinnedMesh->Update();
 
 	int nKey = (int)(GetTickCount() * 4.8f) % (3200 - 640) + 640;
 	D3DXMATRIXA16 matR;

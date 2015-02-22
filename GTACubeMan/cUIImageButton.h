@@ -1,6 +1,4 @@
 #pragma once
-
-class cUIImageButton;
 __interface iButtonDelegate;
 
 class cUIImageButton : public cUIObject

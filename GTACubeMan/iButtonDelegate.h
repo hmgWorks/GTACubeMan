@@ -8,7 +8,7 @@ __interface iButtonDelegate
 public:
 	void OnClick(cObject* pSender);
 	cCamera* GetCamera();
-	void MenuSetting();
+	void Menu();
 	cSkinnedMesh* GetSkinnedMesh();
-	void InitPlayer();
+	//void InitPlayer();
 }; 
