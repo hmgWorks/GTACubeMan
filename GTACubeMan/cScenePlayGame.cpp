@@ -18,6 +18,12 @@ cScenePlayGame::cScenePlayGame()
 
 cScenePlayGame::~cScenePlayGame()
 {
+	if (!m_vecAseBackgriund.empty())
+	{
+		for (auto p : m_vecAseBackgriund)
+			SAFE_DELETE(p);
+	}
+
 	SAFE_DELETE(m_pGrid);
 }
 
@@ -34,7 +40,8 @@ void cScenePlayGame::Setup(iButtonDelegate* dele)
 
 	std::string sFolder = "ase/";
 	cAseLoader AseLoader;
-	m_pAseRoot = AseLoader.Load(sFolder, std::string("House_01.ASE"));
+	m_pAseRoot = AseLoader.Load(sFolder, std::string("bil.ASE"));
+
 	
 }
 
@@ -52,22 +59,31 @@ void cScenePlayGame::Update()
 		m_pSkinnedMesh->Update();
 
 	int nKey = (int)(GetTickCount() * 4.8f) % (3200 - 640) + 640;
-	D3DXMATRIXA16 matR;
-	D3DXMatrixRotationX(&matR, D3DXToRadian(-90));
+	
+	//D3DXMATRIXA16 matR;
+	//D3DXMatrixRotationX(&matR, D3DXToRadian(-90));
 	if (m_pAseRoot)
-		m_pAseRoot->Update(&matR, nKey);
+		m_pAseRoot->Update(NULL, nKey);
+
+	
 }
 
 void cScenePlayGame::Render()
 {
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
+
 	if (m_pGrid)
 		m_pGrid->Render();
 
 	if (m_pAseRoot)
 		m_pAseRoot->Render();
 
+	D3DXMATRIXA16 matWorld;
+	D3DXMatrixIdentity(&matWorld);
+
 	if (m_pSkinnedMesh)
-		m_pSkinnedMesh->Render();
+		m_pSkinnedMesh->Render(&matWorld);
+
 }
 
 void cScenePlayGame::Exit()

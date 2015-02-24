@@ -93,7 +93,6 @@
     <ClInclude Include="cGrid.h" />
     <ClInclude Include="cInputManiger.h" />
     <ClInclude Include="cMainGame.h" />
-    <ClInclude Include="cMouseController.h" />
     <ClInclude Include="cMtlTex.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectManager.h" />
@@ -128,7 +127,6 @@
     <ClCompile Include="cGrid.cpp" />
     <ClCompile Include="cInputManiger.cpp" />
     <ClCompile Include="cMainGame.cpp" />
-    <ClCompile Include="cMouseController.cpp" />
     <ClCompile Include="cMtlTex.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectManager.cpp" />

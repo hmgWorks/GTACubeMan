@@ -62,6 +62,9 @@ public: virtual void Set##funName(varType var){\
 }
 
 #define RESOURCE_FOLDER "../../Resources/"
+#define XFILE_FOLDER "xfile/"
+#define WINDOW_WIDTH 1024
+#define WINDOW_HEIGHT 768
 
 struct ST_RHWC_VERTEX
 {

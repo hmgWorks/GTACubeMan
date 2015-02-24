@@ -1,4 +1,5 @@
 #pragma once
+
 __interface iButtonDelegate;
 
 __interface iSceneBase

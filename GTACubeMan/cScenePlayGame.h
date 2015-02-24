@@ -20,6 +20,7 @@ private:
 	iButtonDelegate*	m_pButtonDelegate;
 	cFrame*				m_pAseRoot;
 	cSkinnedMesh*		m_pSkinnedMesh;
+	std::vector<cFrame*> m_vecAseBackgriund;
 
 public:
 	cScenePlayGame();

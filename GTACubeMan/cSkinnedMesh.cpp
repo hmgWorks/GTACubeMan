@@ -26,7 +26,7 @@ cSkinnedMesh::~cSkinnedMesh(void)
 void cSkinnedMesh::Setup( std::string sFolder, std::string sFile )
 {
 	cAllocateHierarchy Alloc;
-	Alloc.SetFolder("xfile/");
+	Alloc.SetFolder(XFILE_FOLDER);
 	D3DXLoadMeshHierarchyFromX(
 		(sFolder + sFile).c_str(), 
 		D3DXMESH_MANAGED, 
@@ -80,9 +80,9 @@ void cSkinnedMesh::Update()
 	UpdateSkinnedMesh(m_pRootFrame);
 }
 
-void cSkinnedMesh::Render()
+void cSkinnedMesh::Render(D3DXMATRIXA16* matWorld)
 {
-	Render(m_pRootFrame);
+	Render(m_pRootFrame, matWorld);
 }
 
 
@@ -106,10 +106,10 @@ void cSkinnedMesh::UpdateWorldMatrix( D3DXFRAME* pFrame, D3DXMATRIXA16* pmatPare
 	}
 }
 
-void cSkinnedMesh::Render( D3DXFRAME* pFrame )
+void cSkinnedMesh::Render(D3DXFRAME* pFrame, D3DXMATRIXA16* matWorld)
 {
 	ST_BONE* pBone = (ST_BONE*)pFrame;
-	g_pD3DDevice->SetTransform(D3DTS_WORLD, &pBone->matWorldTM);
+	g_pD3DDevice->SetTransform(D3DTS_WORLD, matWorld);
 
 	if(pBone->pMeshContainer)
 	{
@@ -123,12 +123,12 @@ void cSkinnedMesh::Render( D3DXFRAME* pFrame )
 	}
 	if(pBone->pFrameSibling)
 	{
-		Render(pBone->pFrameSibling);
+		Render(pBone->pFrameSibling, matWorld);
 	}
 	
 	if(pBone->pFrameFirstChild)
 	{
-		Render(pBone->pFrameFirstChild);
+		Render(pBone->pFrameFirstChild, matWorld);
 	}
 }
 

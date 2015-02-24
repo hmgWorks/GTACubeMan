@@ -28,6 +28,9 @@
     <Filter Include="소스 파일\XLoader">
       <UniqueIdentifier>{d7a0ef4f-900b-4fcc-b249-a3e5a7297d00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\stdObject">
+      <UniqueIdentifier>{914a259d-4300-4927-9cca-928c45b5d6d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -40,15 +43,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GTACubeMan.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="cMainGame.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="cObject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="cDeviceManager.h">
@@ -87,17 +81,8 @@
     <ClInclude Include="iButtonDelegate.h">
       <Filter>소스 파일\UI</Filter>
     </ClInclude>
-    <ClInclude Include="cGrid.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="cMouseController.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="cInputManiger.h">
       <Filter>소스 파일\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="cCamera.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="cScenePlayGame.h">
       <Filter>소스 파일\Scene</Filter>
@@ -123,9 +108,6 @@
     <ClInclude Include="Asciitok.h">
       <Filter>소스 파일\AseLoader</Filter>
     </ClInclude>
-    <ClInclude Include="cMtlTex.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="cAllocateHierarchy.h">
       <Filter>소스 파일\XLoader</Filter>
     </ClInclude>
@@ -135,18 +117,27 @@
     <ClInclude Include="cSkinnedMesh.h">
       <Filter>소스 파일\XLoader</Filter>
     </ClInclude>
+    <ClInclude Include="cMtlTex.h">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClInclude>
+    <ClInclude Include="cCamera.h">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClInclude>
+    <ClInclude Include="cGrid.h">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClInclude>
+    <ClInclude Include="cMainGame.h">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject.h">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GTACubeMan.h">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GTACubeMan.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="cMainGame.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="cObject.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="cDeviceManager.cpp">
@@ -179,17 +170,8 @@
     <ClCompile Include="cUITextView.cpp">
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
-    <ClCompile Include="cGrid.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="cMouseController.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="cInputManiger.cpp">
       <Filter>소스 파일\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="cCamera.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="cScenePlayGame.cpp">
       <Filter>소스 파일\Scene</Filter>
@@ -212,9 +194,6 @@
     <ClCompile Include="cFrame.cpp">
       <Filter>소스 파일\AseLoader</Filter>
     </ClCompile>
-    <ClCompile Include="cMtlTex.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="cAllocateHierarchy.cpp">
       <Filter>소스 파일\XLoader</Filter>
     </ClCompile>
@@ -223,6 +202,24 @@
     </ClCompile>
     <ClCompile Include="cSkinnedMesh.cpp">
       <Filter>소스 파일\XLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="cCamera.cpp">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClCompile>
+    <ClCompile Include="cGrid.cpp">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClCompile>
+    <ClCompile Include="cMainGame.cpp">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClCompile>
+    <ClCompile Include="cMtlTex.cpp">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject.cpp">
+      <Filter>소스 파일\stdObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GTACubeMan.cpp">
+      <Filter>소스 파일\stdObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

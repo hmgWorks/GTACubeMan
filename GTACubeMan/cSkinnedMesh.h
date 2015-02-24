@@ -19,14 +19,14 @@ public:
 
 	void Setup(std::string sFolder, std::string sFile);
 	void Update();
-	void Render();
+	void Render(D3DXMATRIXA16* matWorld);
 	void SetAnimationIndex(DWORD dwIndex);
 	void SetAnimationLoop(DWORD dwIndex, bool isLoop);
 
 private:
 	void SetAnimationIndexBlend(DWORD dwIndex);
 	void UpdateWorldMatrix(D3DXFRAME* pFrame, D3DXMATRIXA16* pmatParent);
-	void Render(D3DXFRAME* pFrame);
+	void Render(D3DXFRAME* pFrame, D3DXMATRIXA16* matWorld);
 	void SetupBoneMatrixPtrs(D3DXFRAME* pFrame);
 	void UpdateSkinnedMesh( D3DXFRAME* pFrame );
 

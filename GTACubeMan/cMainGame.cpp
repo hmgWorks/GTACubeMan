@@ -147,7 +147,7 @@ cSkinnedMesh* cMainGame::GetSkinnedMesh()
 void cMainGame::CreatePlayer()
 {
 	m_pSkinnedMesh = new cSkinnedMesh;
-	m_pSkinnedMesh->Setup(std::string("xfile/"), std::string("zealot.X"));
+	m_pSkinnedMesh->Setup(std::string(XFILE_FOLDER), std::string("blackman.X"));
 	m_pSkinnedMesh->SetAnimationLoop(0, false);
 	m_pSkinnedMesh->SetAnimationLoop(1, false);
 	m_pSkinnedMesh->SetAnimationLoop(2, false);
