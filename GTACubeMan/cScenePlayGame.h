@@ -8,8 +8,9 @@ __interface iButtonDelegate;
 
 class cGrid;
 class cCamera;
-class cFrame;
+//class cFrame;
 class cSkinnedMesh;
+class cGroup;
 
 class cScenePlayGame
 	:public iSceneBase
@@ -18,9 +19,11 @@ private:
 	cGrid*				m_pGrid;
 	cCamera*			m_pCamera;
 	iButtonDelegate*	m_pButtonDelegate;
-	cFrame*				m_pAseRoot;
 	cSkinnedMesh*		m_pSkinnedMesh;
-	std::vector<cFrame*> m_vecAseBackgriund;
+	//cFrame*				m_pAseRoot;
+	//std::vector<cFrame*> m_vecAseBackgriund;
+	
+	std::vector<cGroup*> m_vecGroup;
 
 public:
 	cScenePlayGame();

@@ -6,6 +6,8 @@
 #include "cFrame.h"
 #include "cAseLoader.h"
 #include "cSkinnedMesh.h"
+#include "cGroup.h"
+#include "cObjLoader.h"
 
 cScenePlayGame::cScenePlayGame()
 	:m_pGrid(NULL)
@@ -18,6 +20,12 @@ cScenePlayGame::cScenePlayGame()
 
 cScenePlayGame::~cScenePlayGame()
 {
+	if (!m_vecGroup.empty())
+	{
+		for (auto p : m_vecGroup)
+			SAFE_DELETE(p);
+	}
+
 	if (!m_vecAseBackgriund.empty())
 	{
 		for (auto p : m_vecAseBackgriund)
@@ -38,9 +46,13 @@ void cScenePlayGame::Setup(iButtonDelegate* dele)
 	m_pCamera = dele->GetCamera();
 	m_pCamera->Setup();
 
-	std::string sFolder = "ase/";
-	cAseLoader AseLoader;
-	m_pAseRoot = AseLoader.Load(sFolder, std::string("bil.ASE"));
+	
+	//std::string sFolder = "ase/";
+	//cAseLoader AseLoader;
+	//m_pAseRoot = AseLoader.Load(sFolder, std::string("road.ASE"));
+
+	cObjLoader ObjLoader;
+	ObjLoader.Load(m_vecGroup, std::string("obj/"), std::string("road.obj"));
 
 	
 }
@@ -83,6 +95,13 @@ void cScenePlayGame::Render()
 
 	if (m_pSkinnedMesh)
 		m_pSkinnedMesh->Render(&matWorld);
+
+	/*D3DXMATRIXA16 matR;
+	D3DXMatrixRotationX(&matR, -D3DX_PI / 2.f);
+	
+	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matR);*/
+	for (auto p : m_vecGroup)
+		p->Render();
 
 }
 

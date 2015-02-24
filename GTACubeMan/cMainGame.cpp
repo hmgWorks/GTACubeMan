@@ -153,6 +153,6 @@ void cMainGame::CreatePlayer()
 	m_pSkinnedMesh->SetAnimationLoop(2, false);
 	m_pSkinnedMesh->SetAnimationLoop(3, true);
 	m_pSkinnedMesh->SetAnimationLoop(4, true);
-	m_pSkinnedMesh->SetAnimationIndex(4);
+	m_pSkinnedMesh->SetAnimationIndex(1);
 }
 #pragma endregion
