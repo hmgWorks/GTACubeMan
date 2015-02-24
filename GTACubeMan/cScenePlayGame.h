@@ -8,7 +8,6 @@ __interface iButtonDelegate;
 
 class cGrid;
 class cCamera;
-//class cFrame;
 class cSkinnedMesh;
 class cGroup;
 
@@ -20,9 +19,7 @@ private:
 	cCamera*			m_pCamera;
 	iButtonDelegate*	m_pButtonDelegate;
 	cSkinnedMesh*		m_pSkinnedMesh;
-	//cFrame*				m_pAseRoot;
-	//std::vector<cFrame*> m_vecAseBackgriund;
-	
+		
 	std::vector<cGroup*> m_vecGroup;
 
 public:

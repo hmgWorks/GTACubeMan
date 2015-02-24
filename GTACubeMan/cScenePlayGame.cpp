@@ -3,8 +3,6 @@
 #include "iButtonDelegate.h"
 #include "cGrid.h"
 #include "cCamera.h"
-#include "cFrame.h"
-#include "cAseLoader.h"
 #include "cSkinnedMesh.h"
 #include "cGroup.h"
 #include "cObjLoader.h"
@@ -13,7 +11,6 @@ cScenePlayGame::cScenePlayGame()
 	:m_pGrid(NULL)
 	, m_pCamera(NULL)
 	, m_pButtonDelegate(NULL)
-	, m_pAseRoot(NULL)
 	, m_pSkinnedMesh(NULL)
 {
 }
@@ -25,13 +22,7 @@ cScenePlayGame::~cScenePlayGame()
 		for (auto p : m_vecGroup)
 			SAFE_DELETE(p);
 	}
-
-	if (!m_vecAseBackgriund.empty())
-	{
-		for (auto p : m_vecAseBackgriund)
-			SAFE_DELETE(p);
-	}
-
+	
 	SAFE_DELETE(m_pGrid);
 }
 
@@ -45,12 +36,7 @@ void cScenePlayGame::Setup(iButtonDelegate* dele)
 
 	m_pCamera = dele->GetCamera();
 	m_pCamera->Setup();
-
 	
-	//std::string sFolder = "ase/";
-	//cAseLoader AseLoader;
-	//m_pAseRoot = AseLoader.Load(sFolder, std::string("road.ASE"));
-
 	cObjLoader ObjLoader;
 	ObjLoader.Load(m_vecGroup, std::string("obj/"), std::string("road.obj"));
 
@@ -72,12 +58,6 @@ void cScenePlayGame::Update()
 
 	int nKey = (int)(GetTickCount() * 4.8f) % (3200 - 640) + 640;
 	
-	//D3DXMATRIXA16 matR;
-	//D3DXMatrixRotationX(&matR, D3DXToRadian(-90));
-	if (m_pAseRoot)
-		m_pAseRoot->Update(NULL, nKey);
-
-	
 }
 
 void cScenePlayGame::Render()
@@ -87,19 +67,13 @@ void cScenePlayGame::Render()
 	if (m_pGrid)
 		m_pGrid->Render();
 
-	if (m_pAseRoot)
-		m_pAseRoot->Render();
-
+	
 	D3DXMATRIXA16 matWorld;
 	D3DXMatrixIdentity(&matWorld);
 
 	if (m_pSkinnedMesh)
 		m_pSkinnedMesh->Render(&matWorld);
 
-	/*D3DXMATRIXA16 matR;
-	D3DXMatrixRotationX(&matR, -D3DX_PI / 2.f);
-	
-	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matR);*/
 	for (auto p : m_vecGroup)
 		p->Render();
 
